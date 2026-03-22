@@ -1,6 +1,6 @@
 ###
 
-GET http://127.0.0.1:8080/api/users
+GET http://127.0.0.1:8080/api/users/username/james
 
 ###
 
@@ -8,7 +8,10 @@ POST http://127.0.0.1:8080/api/users
 Content-Type: application/json
 
 {
-    "name": "James",
+    "name": "james",
     "username": "james",
-    "password": "test123"
+    "password": "abcdefgh"
 }
+
+###
+POST http://127.0.0.1:8080/api/users/reset

@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const fs = require("fs");
 const mongoose = require("mongoose");
 
 const app = express();
 
 app.use(cors());
+app.use((req, res, next) => {
+    console.log(`IP: ${req.ip} | TIME: ${new Date().toISOString().split("T")[0]} ${new Date().toISOString().split("T")[1].split(".")[0]} | REQ. TYPE: ${req.method} | REQ. URL: ${req.originalUrl}`);
+    next();
+})
 
 const config = require("./config.json");
 
