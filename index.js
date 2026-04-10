@@ -12,22 +12,23 @@ app.use((req, res, next) => {
 })
 
 const config = require("./config.json");
+const DBOn = false;
 
 (async() => {
-    try {
-        await mongoose.connect(config.local.mongoDB.link);
-        console.log("Successfully logged into MongoDB database!");
-    } catch (error) {
-        console.log("Failed attempt to connect to MongoDB database!");
+    if (DBOn) {
+        try {
+            await mongoose.connect(config.local.mongoDB.link);
+            console.log("Successfully logged into MongoDB database!");
+        } catch (error) {
+            console.log("Failed attempt to connect to MongoDB database!");
+        }
     }
 })();
 
 
-const apiJSON = require("./api.json");
-
-
 // routes (import)
 const users = require("./routes/users");
+const files = require("./routes/src");
 
 
 app.use(express.static("public"));
@@ -35,6 +36,21 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/html/landing.html"));
 })
+
+app.get("/:page", (req, res) => {
+    const webpages = config.webpages;
+    for (var i = 0; i < webpages.length; i++) {
+        if (webpages[i] == req.params.page) {
+            res.sendFile(path.join(__dirname, `/public/html/${req.params.page}.html`));
+            return res.status(200);
+        }
+    }
+
+    res.sendFile(path.join(__dirname, "/public/html/404.html"));
+})
+
+
+app.use("/api/src", files);
 
 app.use(express.json()); // uses body from this point onwards
 
@@ -47,6 +63,8 @@ app.listen(config.server.port, () => {
 
 process.on('SIGINT', async () => {
     console.log("Terminating server...");
-    await mongoose.connection.close();
+    if (DBOn) {
+        await mongoose.connection.close();
+    }
     process.exit(0);
 });

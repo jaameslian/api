@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/index.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            font-family: var(--primary-font);
+        }
+
+        body > * {
+            margin: .5rem;
+        }
+
+        .logo-404 {
+            font-size: 300px;
+            font-family: var(--number-font);
+            font-weight: bolder;
+            background-image: linear-gradient(45deg, #7ad5ff, #71ff9c);
+            color: transparent;
+            background-clip: text;
+        }
+        .head-back-link {
+            color: var(--color-sky_blue);
+        }
+        .head-back-link:hover {
+            cursor: pointer;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <p class="logo-404">404</p>
+    <p style="font-size: 3rem;">This page does not exist.</p>
+    <p style="font-size: 1.5rem;">Would you like to <a href="javascript:window.location.href = window.location.origin" class="head-back-link">head back</a></p>
+</body>
+
+</html>

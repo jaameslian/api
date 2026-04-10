@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&family=IM+Fell+DW+Pica:ital@0;1&family=Lexend:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=ZCOOL+KuaiLe&display=swap');
+
+:root {
+    --primary-font: "PT Sans", sans-serif;
+    --title-font: "Lexend", sans-serif;
+    --number-font: "Cabin Condensed", sans-serif;
+    --chinese-font: "ZCOOL KuaiLe", sans-serif;
+    --fun-font: "IM Fell DW Pica", serif;
+    --color-sky_blue: #7ad5ff;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}

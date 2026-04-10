@@ -20,6 +20,8 @@ Router.post("/", async (req, res) => {
     if (!name || !username || !password) {
         res.status(400).send("Name, username or password is missing from body");
     }
+    
+    // TODO: Data validation
 
     try {
         const hashedPassword = await bcrypt.hash(password, 12)
