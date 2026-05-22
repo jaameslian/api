@@ -36,10 +36,11 @@
 
     .intro-pfp {
         overflow: hidden;
-        width: 20vw;
-        height: 20vw;
+        width: 15rem;
+        height: 15rem;
         object-fit: cover;
         border-radius: 50%;
+        z-index: 1;
     }
 
     .intro {
@@ -76,28 +77,82 @@
         width: 100%;
     }
 
-    .intro-icons > * > * {
+    .intro-icons>*>* {
         height: 2rem;
         width: 2rem;
         cursor: pointer;
         padding: 0 .5rem 0 .5rem;
     }
 
+    .section-container {
+        display: flex;
+        height: auto;
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-title {
+        font-family: var(--title-font),'Courier New', Courier, monospace;
+        font-size: 4rem;
+        margin: 4rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            height: 70vh;
+            width: 100vw;
+            justify-content: center;
+        }
+
+        .container>* {
+            margin: 0.5rem;
+        }
+
+        .intro-pfp {
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .intro-icons {
+            margin-top: 1rem;
+            justify-content: space-between;
+        }
+
+        .intro {
+            align-self: center;
+            text-align: center;
+        }
+
+    }
 </style>
 
 <body id="body">
     <div class="outer-container" id="outer-container">
         <div class="container">
-            <img src="" alt="" class="intro-pfp">
-            <!-- ../img/IMG_4067.jpg -->
+            <img src="../img/_DSC5821.JPG" alt="" class="intro-pfp">
             <div class="intro-and-icons">
-                <p id="intro" class="intro">Hey👋! My name is James Lian. I'm currently a student studying at the University of Illinois at Urbana-Champaign. This is my portfolio site, it's currently under construction. View my Github to see what's going on!
+                <p id="intro" class="intro">Hey👋! My name is James Lian. I'm currently a student studying at the
+                    University of Illinois at Urbana-Champaign. This is my portfolio site, it's currently under
+                    construction. Visit my LinkedIn to see what's going on!
                 </p>
                 <div id="intro-icons" class="intro-icons">
                     <a href="https://github.com/jaameslian"><img src="/api/src/icons/github.svg"></a>
                     <a href="https://linkedin.com/in/lianjames"><img src="/api/src/icons/linkedin.svg"></a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="about-container section-container">
+        <div class="section-title">
+            About Me
+        </div>
+        example text
+    </div>
+    <div class="section-container">
+        <div class="section-title">
+            Education
         </div>
     </div>
 </body>

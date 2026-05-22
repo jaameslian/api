@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 })
 
 const config = require("./config.json");
-const DBOn = false;
+const DBOn = true;
 
 (async() => {
     if (DBOn) {
